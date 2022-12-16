@@ -19,6 +19,9 @@ jobs:
           login-server: ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io
           username: ${{ secrets.AZ_SP_CLIENT_ID }}
           password: ${{ secrets.AZ_SP_CLIENT_SECRET }}
+          
+      - name: Login to Azure option 2
+        run: az acr login --name ContainerRegistry968 
 
       - name: Build Docker image
         run: docker-compose up -d --build
