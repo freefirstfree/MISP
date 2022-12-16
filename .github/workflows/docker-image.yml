@@ -15,10 +15,10 @@ jobs:
       - name: Login to Azure Container Registry
         uses: azure/docker-login@v1
         with:
-          creds: ${{  secrets.AZURE_CREDENTIALS }}
-#          login-server: ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io
-#          username: ${{ secrets.AZ_SP_CLIENT_ID }}
-#          password: ${{ secrets.AZ_SP_CLIENT_SECRET }}
+#          creds: ${{  secrets.AZURE_CREDENTIALS }}
+          login-server: ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io
+          username: ${{ secrets.AZ_SP_CLIENT_ID }}
+          password: ${{ secrets.AZ_SP_CLIENT_SECRET }}
 
       - name: Build Docker image
         run: docker-compose build
