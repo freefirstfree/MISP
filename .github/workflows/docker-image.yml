@@ -21,7 +21,8 @@ jobs:
           password: ${{ secrets.AZ_SP_CLIENT_SECRET }}
 
       - name: Build Docker image
-        run: docker-compose build
+#        run: docker-compose build
+        run: docker-compose up -d mydemoapp
 #        run: docker-compose up -d --build
 #       run: docker-compose -f "docker-compose.yml" up -d --build
 
