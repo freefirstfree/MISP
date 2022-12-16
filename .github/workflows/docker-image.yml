@@ -21,13 +21,13 @@ jobs:
           password: ${{ secrets.AZ_SP_CLIENT_SECRET }}
 
       - name: Build Docker image
- #       run: docker-compose build
-        run: docker-compose up -d --build
- #       run: docker-compose -f "docker-compose.yml" up -d --build
+        run: docker-compose build
+#        run: docker-compose up -d --build
+#       run: docker-compose -f "docker-compose.yml" up -d --build
 
       - name: Push Docker image to Azure Container Registry
         run: |
-            docker push
-#            docker tag mydemoapp:latest ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
-#            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
+
+            docker tag mydemoapp:latest ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
+            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
             
