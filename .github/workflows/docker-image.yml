@@ -21,10 +21,13 @@ jobs:
           password: ${{ secrets.AZ_SP_CLIENT_SECRET }}
 
       - name: Build Docker image
+        run: docker build --build-arg MISP_VERSION=v2.4.152 -t ghcr.io/nukib/misp https://github.com/NUKIB/misp.git#main
 #        run: docker-compose build
 #        run: docker-compose up -d mydemoapp
-        run: docker-compose up -d --build
+#        run: docker-compose up -d --build
 #       run: docker-compose -f "docker-compose.yml" up -d --build
+      - name: docker image
+        run: docker images
 
       - name: Push Docker image to Azure Container Registry
         run: |
