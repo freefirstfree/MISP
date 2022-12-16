@@ -31,7 +31,7 @@ services:
       - SETFCAP
 
   misp:
-    image: ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/misp:latest}
+    image: ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/misp:latest
     restart: always
     container_name: misp
     depends_on:
