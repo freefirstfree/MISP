@@ -22,13 +22,15 @@ jobs:
 
       - name: Build Docker image
 #        run: docker-compose build
-        run: docker-compose up -d mydemoapp
-#        run: docker-compose up -d --build
+#        run: docker-compose up -d mydemoapp
+        run: docker-compose up -d --build
 #       run: docker-compose -f "docker-compose.yml" up -d --build
 
       - name: Push Docker image to Azure Container Registry
         run: |
-
-            docker tag mydemoapp:latest ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
-            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
+            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/misp-modules:latest
+#            docker tag mydemoapp:latest ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
+#            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
+            
+            
             
