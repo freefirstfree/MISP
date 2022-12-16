@@ -30,7 +30,7 @@ jobs:
         run: docker images
 
 #      - name: Push Docker image to Azure Container Registry
-#        run: |
+#        run: docker-compose push 
 #            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/misp-modules
 #            docker tag mydemoapp:latest ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
 #            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
