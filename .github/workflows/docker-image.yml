@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.AZ_SP_CLIENT_SECRET }}
 
       - name: Build Docker image
-
+        run: docker-compose up -d --build
 #        run: docker-compose build
 #        run: docker-compose up -d mydemoapp
 #        run: docker-compose up -d --build
@@ -29,8 +29,8 @@ jobs:
       - name: docker image
         run: docker images
 
-      - name: Push Docker image to Azure Container Registry
-        run: |
+#      - name: Push Docker image to Azure Container Registry
+#        run: |
 #            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/misp-modules
 #            docker tag mydemoapp:latest ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
 #            docker push ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/mydemoapp:${{ github.sha }}
