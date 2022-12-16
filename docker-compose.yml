@@ -19,7 +19,7 @@ services:
     container_name: misp-redis
 
   misp-modules:
-    image: ghcr.io/nukib/misp-modules:latest
+    image: ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/misp-modules:latest
     restart: always
     container_name: misp-modules
     cap_drop:
@@ -31,7 +31,7 @@ services:
       - SETFCAP
 
   misp:
-    image: ${MISP_IMAGE-ghcr.io/nukib/misp:latest}
+    image: ${{ secrets.ACR_REGISTRY_NAME }}.azurecr.io/misp:latest}
     restart: always
     container_name: misp
     depends_on:
